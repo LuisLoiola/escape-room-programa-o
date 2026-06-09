@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int escolha;
+
+    printf("========================================\n");
+    printf("        BEM-VINDO AO ESCAPE ROOM        \n");
+    printf("========================================\n");
+    printf("Voce acorda em uma sala escura...\n");
+    printf("Mas voce tem algumas opcoes para escapar...\n\n");
+
+    do {
+        printf("Escolha uma porta:\n");
+        printf("1 - Porta Matematica\n");
+        printf("2 - Porta do Numero Secreto\n");
+        printf("3 - Porta do Enigma\n");
+        printf("0 - Sair\n\n");
+        printf("Sua escolha: ");
+        scanf("%d", &escolha);
+
+        if (escolha == 0) {
+            printf("\nVoce desistiu. A sala permanece fechada...\n");
+        } else if (escolha >= 1 && escolha <= 3) {
+            printf("\nVoce se aproxima da porta %d...\n", escolha);
+            printf("(desafio em construcao)\n\n");
+        } else {
+            printf("\nOpcao invalida! Tente novamente.\n\n");
+        }
+
+    } while (escolha != 0);
+
+    return 0;
+}
