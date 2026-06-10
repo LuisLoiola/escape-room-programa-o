@@ -2,9 +2,9 @@
 
 <div align="center">
 
-![Print 1](prints/p1.png)
-![Print 2](prints/p2.png)
-![Print 3](p3.png)
+![Print 1]([prints/p1.png](https://github.com/LuisLoiola/escape-room-programa-o/blob/main/prints/p1.PNG))
+![Print 2]([prints/p2.png](https://github.com/LuisLoiola/escape-room-programa-o/blob/main/prints/p2.PNG))
+![Print 3]([p3.png](https://github.com/LuisLoiola/escape-room-programa-o/blob/main/prints/p3.PNG))
 
 *Um jogo de terminal onde sua mente é a única chave.*
 
