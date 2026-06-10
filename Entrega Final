@@ -1,5 +1,23 @@
 #include <stdio.h>
 
+void porta1() {
+    int resposta;
+    int correto = 42;
+
+    printf("\n--- PORTA 1: Camara Matematica ---\n");
+    printf("Para abrir esta porta, resolva:\n");
+    printf("  15 + 27 = ?\n");
+    printf("Sua resposta: ");
+    scanf("%d", &resposta);
+
+    if (resposta == correto) {
+        printf("Correto! A porta se abre com um estrondo!\n");
+    } else {
+        printf("Errado! A porta permanece fechada.\n");
+        printf("(resposta correta era %d)\n", correto);
+    }
+}
+
 int main() {
     int escolha;
 
@@ -18,14 +36,16 @@ int main() {
         printf("Sua escolha: ");
         scanf("%d", &escolha);
 
-        if (escolha == 0) {
+        if (escolha == 1) {
+            porta1();
+        } else if (escolha == 2 || escolha == 3) {
+            printf("\nEsta porta ainda esta bloqueada...\n");
+        } else if (escolha == 0) {
             printf("\nVoce desistiu. A sala permanece fechada...\n");
-        } else if (escolha >= 1 && escolha <= 3) {
-            printf("\nVoce se aproxima da porta %d...\n", escolha);
-            printf("(desafio em construcao)\n\n");
         } else {
-            printf("\nOpcao invalida! Tente novamente.\n\n");
+            printf("\nOpcao invalida!\n");
         }
+        printf("\n");
 
     } while (escolha != 0);
 
