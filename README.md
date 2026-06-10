@@ -2,10 +2,6 @@
 
 <div align="center">
 
-![Print 1](prints/p1.PNG)
-![Print 2](prints/p2.PNG)
-![Print 3](prints/p3.PNG)
-
 </div>
 
 ---
@@ -103,6 +99,13 @@ Tentativa 1/3: 42
 | Nome |
 |------|
 | Luís Felipe de Melo Loiola |
+---
+
+# 🕹 PRINTS DO JOGO
+
+![Print 1](prints/p1.PNG)
+![Print 2](prints/p2.PNG)
+![Print 3](prints/p3.PNG)
 ---
 
 <div align="center">
