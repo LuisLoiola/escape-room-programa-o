@@ -2,6 +2,10 @@
 
 <div align="center">
 
+![Print 1](prints/p1.png)
+![Print 2](prints/p2.png)
+![Print 3](p3.png)
+
 *Um jogo de terminal onde sua mente é a única chave.*
 
 </div>
@@ -100,13 +104,11 @@ Tentativa 1/3: 42
 
 | Nome |
 |------|
-| Luís Felipe de Melo Loiola|
-
+| Luís Felipe de Melo Loiola |
 ---
-
 
 <div align="center">
 
-*Entrega Final.*
+*Feito com ☕ e muita lógica.*
 
 </div>
