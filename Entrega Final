@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 void porta1() {
     int resposta;
@@ -16,6 +18,30 @@ void porta1() {
         printf("Errado! A porta permanece fechada.\n");
         printf("(resposta correta era %d)\n", correto);
     }
+}
+
+void porta2() {
+    int chute, secreto;
+
+    srand(time(NULL));
+    secreto = rand() % 20 + 1;
+
+    printf("\n--- PORTA 2: Sala do Numero Secreto ---\n");
+    printf("Ha um numero entre 1 e 20 gravado na porta.\n");
+    printf("Descubra qual e para abri-la!\n\n");
+
+    do {
+        printf("Seu chute: ");
+        scanf("%d", &chute);
+
+        if (chute < secreto) {
+            printf("Muito baixo! Tente mais alto.\n");
+        } else if (chute > secreto) {
+            printf("Muito alto! Tente mais baixo.\n");
+        } else {
+            printf("Isso! A porta range e se abre!\n");
+        }
+    } while (chute != secreto);
 }
 
 int main() {
@@ -38,7 +64,9 @@ int main() {
 
         if (escolha == 1) {
             porta1();
-        } else if (escolha == 2 || escolha == 3) {
+        } else if (escolha == 2) {
+            porta2();
+        } else if (escolha == 3) {
             printf("\nEsta porta ainda esta bloqueada...\n");
         } else if (escolha == 0) {
             printf("\nVoce desistiu. A sala permanece fechada...\n");
