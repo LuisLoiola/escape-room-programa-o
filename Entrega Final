@@ -44,6 +44,26 @@ void porta2() {
     } while (chute != secreto);
 }
 
+void porta3() {
+    int resposta;
+
+    printf("\n--- PORTA 3: Porta do Enigma ---\n");
+    printf("Uma inscricao na parede diz:\n\n");
+    printf("  'Sou par, estou entre 10 e 20,\n");
+    printf("   e sou divisivel por 3.\n");
+    printf("   Qual numero sou eu?'\n\n");
+    printf("Sua resposta: ");
+    scanf("%d", &resposta);
+
+    if (resposta == 12 || resposta == 18) {
+        printf("A porta treme... e se abre lentamente!\n");
+        printf("Voce escapou! PARABENS!\n");
+    } else {
+        printf("Errado. A porta nao se move.\n");
+        printf("(dica: existem dois numeros possiveis)\n");
+    }
+}
+
 int main() {
     int escolha;
 
@@ -67,7 +87,7 @@ int main() {
         } else if (escolha == 2) {
             porta2();
         } else if (escolha == 3) {
-            printf("\nEsta porta ainda esta bloqueada...\n");
+            porta3();
         } else if (escolha == 0) {
             printf("\nVoce desistiu. A sala permanece fechada...\n");
         } else {
