@@ -2,66 +2,84 @@
 #include <stdlib.h>
 #include <time.h>
 
-void porta1() {
-    int resposta;
+int porta1() {
+    int resposta, tentativas = 0;
     int correto = 42;
 
     printf("\n--- PORTA 1: Camara Matematica ---\n");
-    printf("Para abrir esta porta, resolva:\n");
-    printf("  15 + 27 = ?\n");
-    printf("Sua resposta: ");
-    scanf("%d", &resposta);
+    printf("Voce tem 3 tentativas!\n");
+    printf("Resolva: 15 + 27 = ?\n\n");
 
-    if (resposta == correto) {
-        printf("Correto! A porta se abre com um estrondo!\n");
-    } else {
-        printf("Errado! A porta permanece fechada.\n");
-        printf("(resposta correta era %d)\n", correto);
+    while (tentativas < 3) {
+        printf("Tentativa %d/3 - Sua resposta: ", tentativas + 1);
+        scanf("%d", &resposta);
+        tentativas++;
+
+        if (resposta == correto) {
+            printf("Correto! A porta se abre com um estrondo!\n");
+            return 1;
+        } else {
+            printf("Errado! ");
+            if (tentativas < 3) printf("Tente novamente.\n");
+        }
     }
+
+    printf("\nSem tentativas! A porta trava permanentemente.\n");
+    return 0;
 }
 
-void porta2() {
-    int chute, secreto;
+int porta2() {
+    int chute, secreto, tentativas = 0;
 
     srand(time(NULL));
     secreto = rand() % 20 + 1;
 
     printf("\n--- PORTA 2: Sala do Numero Secreto ---\n");
     printf("Ha um numero entre 1 e 20 gravado na porta.\n");
-    printf("Descubra qual e para abri-la!\n\n");
+    printf("Voce tem 5 tentativas!\n\n");
 
-    do {
-        printf("Seu chute: ");
+    while (tentativas < 5) {
+        printf("Tentativa %d/5 - Seu chute: ", tentativas + 1);
         scanf("%d", &chute);
+        tentativas++;
 
         if (chute < secreto) {
-            printf("Muito baixo! Tente mais alto.\n");
+            printf("Muito baixo!\n");
         } else if (chute > secreto) {
-            printf("Muito alto! Tente mais baixo.\n");
+            printf("Muito alto!\n");
         } else {
             printf("Isso! A porta range e se abre!\n");
+            return 1;
         }
-    } while (chute != secreto);
+    }
+
+    printf("\nSem tentativas! O numero era %d.\n", secreto);
+    return 0;
 }
 
-void porta3() {
-    int resposta;
+int porta3() {
+    int resposta, tentativas = 0;
 
     printf("\n--- PORTA 3: Porta do Enigma ---\n");
-    printf("Uma inscricao na parede diz:\n\n");
-    printf("  'Sou par, estou entre 10 e 20,\n");
-    printf("   e sou divisivel por 3.\n");
-    printf("   Qual numero sou eu?'\n\n");
-    printf("Sua resposta: ");
-    scanf("%d", &resposta);
+    printf("Voce tem 2 tentativas!\n");
+    printf("'Sou par, estou entre 10 e 20, e sou divisivel por 3.'\n\n");
 
-    if (resposta == 12 || resposta == 18) {
-        printf("A porta treme... e se abre lentamente!\n");
-        printf("Voce escapou! PARABENS!\n");
-    } else {
-        printf("Errado. A porta nao se move.\n");
-        printf("(dica: existem dois numeros possiveis)\n");
+    while (tentativas < 2) {
+        printf("Tentativa %d/2 - Sua resposta: ", tentativas + 1);
+        scanf("%d", &resposta);
+        tentativas++;
+
+        if (resposta == 12 || resposta == 18) {
+            printf("A porta se abre lentamente! Voce escapou!\n");
+            return 1;
+        } else {
+            printf("Errado! ");
+            if (tentativas < 2) printf("Uma ultima chance...\n");
+        }
     }
+
+    printf("\nA porta nao se move. (respostas: 12 ou 18)\n");
+    return 0;
 }
 
 int main() {
@@ -82,19 +100,13 @@ int main() {
         printf("Sua escolha: ");
         scanf("%d", &escolha);
 
-        if (escolha == 1) {
-            porta1();
-        } else if (escolha == 2) {
-            porta2();
-        } else if (escolha == 3) {
-            porta3();
-        } else if (escolha == 0) {
-            printf("\nVoce desistiu. A sala permanece fechada...\n");
-        } else {
-            printf("\nOpcao invalida!\n");
-        }
-        printf("\n");
+        if (escolha == 1) porta1();
+        else if (escolha == 2) porta2();
+        else if (escolha == 3) porta3();
+        else if (escolha == 0) printf("\nVoce desistiu.\n");
+        else printf("\nOpcao invalida!\n");
 
+        printf("\n");
     } while (escolha != 0);
 
     return 0;
