@@ -90,6 +90,30 @@ int porta3() {
     return 0;
 }
 
+void placar(int p1, int p2, int p3) {
+    int total = p1 + p2 + p3;
+    printf("========================================\n");
+    printf("             RESULTADO FINAL            \n");
+    printf("========================================\n");
+    printf("  Porta Matematica:   %s\n", p1 ? "ABERTA  [+1 ponto]" : "fechada [0 pontos]");
+    printf("  Numero Secreto:     %s\n", p2 ? "ABERTA  [+1 ponto]" : "fechada [0 pontos]");
+    printf("  Porta do Enigma:    %s\n", p3 ? "ABERTA  [+1 ponto]" : "fechada [0 pontos]");
+    printf("----------------------------------------\n");
+    printf("  PONTUACAO FINAL: %d/3\n", total);
+    printf("----------------------------------------\n");
+
+    if (total == 3) {
+        printf("  STATUS: FUGA COMPLETA! Genio!\n");
+    } else if (total == 2) {
+        printf("  STATUS: Quase la... Tente de novo!\n");
+    } else if (total == 1) {
+        printf("  STATUS: A sala venceu desta vez.\n");
+    } else {
+        printf("  STATUS: A escuridao te engoliu.\n");
+    }
+    printf("========================================\n");
+}
+
 int main() {
     int escolha;
     int abertas = 0;
@@ -115,7 +139,7 @@ int main() {
         if (escolha == 1 && !p1) { p1 = porta1(); if (p1) abertas++; }
         else if (escolha == 2 && !p2) { p2 = porta2(); if (p2) abertas++; }
         else if (escolha == 3 && !p3) { p3 = porta3(); if (p3) abertas++; }
-        else if (escolha == 1 || escolha == 2 || escolha == 3) printf("\nEsta porta ja foi aberta!\n");
+        else if ((escolha >= 1 && escolha <= 3)) printf("\nEsta porta ja foi tentada!\n");
         else if (escolha == 0) printf("\nVoce desistiu...\n");
         else printf("\nOpcao invalida!\n");
 
@@ -124,11 +148,13 @@ int main() {
         if (abertas == 3) {
             printf("========================================\n");
             printf("   PARABENS! VOCE ESCAPOU DA SALA!     \n");
-            printf("========================================\n");
+            printf("========================================\n\n");
             break;
         }
 
     } while (escolha != 0);
+
+    placar(p1, p2, p3);
 
     return 0;
 }
